@@ -27,7 +27,8 @@ const client = require('socket.io').listen(server).sockets;
 /* [Routing]: make response on request ======================= */
 // '': show all contacts! 라는 요청 처리
 app.post('/api/login', (req, res) => {
-    console.log('loaded index.js');
+    console.log('loaded index.html');
+    return res.render('index.html');
 });
 
 
