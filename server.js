@@ -10,6 +10,7 @@ app.set('views', __dirname + '/views'); // view(views that this application will
 app.set('view engine', 'ejs'); // 템플릿을 HTML 형식으로 변환시키는 모듈: HTML에서 <%%>를 사용하여 서버의 데이터를 사용하거나, 코드를 실행. <%--Javascript Code--%>
 app.use(bodyParser.json({limit: '20mb'})); // http request body 가 json 일때도 지원, limit extension: to save images
 app.use(bodyParser.urlencoded({limit: '20mb', extended: true}));
+app.use(express.static(__dirname + '/')); // serving static files(?)
 //==========================================================================
 
 
@@ -24,8 +25,8 @@ const client = require('socket.io').listen(server).sockets;
 
 
 /* [Routing]: make response on request ======================= */
-// '/api/show/contacts': show all contacts! 라는 요청 처리
-app.get('/', () => {
+// '': show all contacts! 라는 요청 처리
+app.post('/api/login', (req, res) => {
     console.log('loaded index.js');
 });
 
